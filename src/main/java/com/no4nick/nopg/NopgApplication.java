@@ -17,17 +17,17 @@ public class NopgApplication extends Application {
             switch (key.getCode()){
                 case S -> {
                     Platform.runLater(() -> {
-                        if (!LeftPaddle.isMovingDown()) {
-                            LeftPaddle lp = new LeftPaddle(-1);
+                        if (!LeftNewPaddle.isMovingDown()) {
+                            LeftNewPaddle lp = new LeftNewPaddle(-1);
                             lp.start();
-//                            System.out.println(LeftPaddle.leftPaddle.getId());
+//                            System.out.println(LeftNewPaddle.leftPaddle.getId());
                         }
                     });
                 }
                 case W -> {
                     Platform.runLater(() -> {
-                        if (!LeftPaddle.isMovingUp()) {
-                            LeftPaddle lp = new LeftPaddle(1);
+                        if (!LeftNewPaddle.isMovingUp()) {
+                            LeftNewPaddle lp = new LeftNewPaddle(1);
                             lp.start();
     //                        System.out.println(RightPaddle.rightPaddle.getId());
                         }
@@ -59,8 +59,8 @@ public class NopgApplication extends Application {
         scene.addEventHandler(KeyEvent.KEY_RELEASED, (key) -> {
             switch (key.getCode()){
                 case W, S -> {
-                    LeftPaddle.stopMove();
-//                    System.out.println(LeftPaddle.leftPaddle.getId() + " Released");
+                    LeftNewPaddle.stopMove();
+//                    System.out.println(LeftNewPaddle.leftPaddle.getId() + " Released");
                 }
                 case DOWN, UP -> {
                     RightPaddle.stopMove();

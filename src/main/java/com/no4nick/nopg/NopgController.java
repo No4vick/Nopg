@@ -20,7 +20,7 @@ public class NopgController {
 
     public void initialize(){
         new RightPaddle(rightPaddle);
-        new LeftPaddle(leftPaddle);
+        new LeftNewPaddle(leftPaddle);
         new TickGUI(ticksText);
         Ball.ball = ball;
         new ScoreSetter(leftScore, rightScore).start();
@@ -29,8 +29,8 @@ public class NopgController {
     @FXML
     public void onResetButtonClick() {
         ResetContainer.switchReset();
-        leftPaddle.setY(0);
-        rightPaddle.setY(0);
+        leftPaddle.setTranslateY(0);
+        rightPaddle.setTranslateY(0);
         System.out.println(Thread.activeCount());
         ResetContainer.switchReset();
         new ScoreSetter(leftScore, rightScore).start();

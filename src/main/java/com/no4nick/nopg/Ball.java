@@ -87,13 +87,13 @@ public class Ball extends Thread {
             timeline.setCycleCount(0);
             timeline.play();
         }
-        if (LeftPaddle.didBallReach(ball.getTranslateX())) {
-            if (LeftPaddle.didBallHit(ball.getTranslateY())) {
+        if (LeftNewPaddle.didBallReach(ball.getTranslateX())) {
+            if (LeftNewPaddle.didBallHit(ball.getTranslateY())) {
                 System.out.println("ball switched direction");
                 switchDirection();
             }
             else {
-                if (LeftPaddle.didBallReachWall(ball.getTranslateX())) {
+                if (LeftNewPaddle.didBallReachWall(ball.getTranslateX())) {
                     scoredLeft = true;
                     Reset();
                 }
