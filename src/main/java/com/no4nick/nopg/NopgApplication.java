@@ -19,7 +19,11 @@ public class NopgApplication extends Application {
                     Platform.runLater(() -> {
                         if (!LeftNewPaddle.isMovingDown()) {
                             LeftNewPaddle lp = new LeftNewPaddle(-1);
-                            lp.start();
+                            try {
+                                lp.call();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
 //                            System.out.println(LeftNewPaddle.leftPaddle.getId());
                         }
                     });
@@ -28,8 +32,12 @@ public class NopgApplication extends Application {
                     Platform.runLater(() -> {
                         if (!LeftNewPaddle.isMovingUp()) {
                             LeftNewPaddle lp = new LeftNewPaddle(1);
-                            lp.start();
-    //                        System.out.println(RightPaddle.rightPaddle.getId());
+                            try {
+                                lp.call();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            //                        System.out.println(RightPaddle.rightPaddle.getId());
                         }
                     });
                 }

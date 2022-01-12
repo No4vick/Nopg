@@ -33,6 +33,8 @@ public class NopgController {
         rightPaddle.setTranslateY(0);
         System.out.println(Thread.activeCount());
         ResetContainer.switchReset();
-        new ScoreSetter(leftScore, rightScore).start();
+        Platform.runLater(() -> {
+            new ScoreSetter(leftScore, rightScore).start();
+        });
     }
 }

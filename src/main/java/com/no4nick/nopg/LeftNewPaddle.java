@@ -2,10 +2,13 @@ package com.no4nick.nopg;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.concurrent.Task;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
-public class LeftNewPaddle extends Thread {
+import static java.lang.Thread.sleep;
+
+public class LeftNewPaddle extends Task {
     static Rectangle rightPaddle = new Rectangle();
     static double speed = 10.0;
     static boolean movingDown;
@@ -113,5 +116,11 @@ public class LeftNewPaddle extends Thread {
 
     public static synchronized boolean didBallHit(double ballY){
         return (ballY < (rightPaddle.getTranslateY() + 50) && ballY > (rightPaddle.getTranslateY() - 50));
+    }
+
+    @Override
+    protected Object call() throws Exception {
+        run();
+        return null;
     }
 }
