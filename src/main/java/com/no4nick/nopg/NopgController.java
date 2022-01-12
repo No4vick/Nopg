@@ -21,9 +21,13 @@ public class NopgController {
     public void initialize(){
         new RightPaddle(rightPaddle);
         new LeftNewPaddle(leftPaddle);
-        new TickGUI(ticksText);
+//        Platform.runLater(() -> {
+//            new TickGUI(ticksText);
+//        });
         Ball.ball = ball;
-        new ScoreSetter(leftScore, rightScore).start();
+        Platform.runLater(() -> {
+            new ScoreSetter(leftScore, rightScore).start();
+        });
     }
 
     @FXML
@@ -33,6 +37,8 @@ public class NopgController {
         rightPaddle.setTranslateY(0);
         System.out.println(Thread.activeCount());
         ResetContainer.switchReset();
-        new ScoreSetter(leftScore, rightScore).start();
+        Platform.runLater(() -> {
+            new ScoreSetter(leftScore, rightScore).start();
+        });
     }
 }

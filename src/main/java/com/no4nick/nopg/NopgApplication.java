@@ -59,12 +59,12 @@ public class NopgApplication extends Application {
         scene.addEventHandler(KeyEvent.KEY_RELEASED, (key) -> {
             switch (key.getCode()){
                 case W, S -> {
-                    LeftNewPaddle.stopMove();
-//                    System.out.println(LeftNewPaddle.leftPaddle.getId() + " Released");
+                    //                    System.out.println(LeftNewPaddle.leftPaddle.getId() + " Released");
+                    Platform.runLater(LeftNewPaddle::stopMove);
                 }
                 case DOWN, UP -> {
-                    RightPaddle.stopMove();
-//                    System.out.println(RightPaddle.rightPaddle.getId() + " Released");
+                    //                    System.out.println(RightPaddle.rightPaddle.getId() + " Released");
+                    Platform.runLater(RightPaddle::stopMove);
                 }
                 default -> {
 //                    System.out.println(key.getCode());
@@ -83,7 +83,9 @@ public class NopgApplication extends Application {
         stage.setScene(scene);
         startEventHandlers(scene);
         stage.show();
-        new TickGUI().start();
+//        Platform.runLater(() -> {
+//            new TickGUI().start();
+//        });
     }
 
     public static void main(String[] args) {
